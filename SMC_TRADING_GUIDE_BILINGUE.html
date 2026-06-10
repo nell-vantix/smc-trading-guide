@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMC Trading Guide - Bilingüe & Temas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --bg-main: #252530;
+            --bg-sec: #2a2a35;
+            --bg-dark: #1a1a1f;
+            --text-main: #e0e0e0;
+            --text-sec: #aaa;
+            --accent: #FF9800;
+        }
+
+        body.theme-dark {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --bg-main: #252530;
+            --bg-sec: #2a2a35;
+            --bg-dark: #1a1a1f;
+            --text-main: #e0e0e0;
+            --text-sec: #aaa;
+        }
+
+        body.theme-light {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --bg-main: #f5f5f5;
+            --bg-sec: #ffffff;
+            --bg-dark: #ecf0f1;
+            --text-main: #2c3e50;
+            --text-sec: #555;
+        }
+
+        body.theme-corporate-blue {
+            --primary: #003366;
+            --secondary: #004080;
+            --bg-main: #f0f4f8;
+            --bg-sec: #ffffff;
+            --bg-dark: #e6eef7;
+            --text-main: #1a1a2e;
+            --text-sec: #4a4a5a;
+        }
+
+        body.theme-modern-green {
+            --primary: #2d6a4f;
+            --secondary: #40916c;
+            --bg-main: #f1faee;
+            --bg-sec: #ffffff;
+            --bg-dark: #d8f3dc;
+            --text-main: #1b3a27;
+            --text-sec: #52796f;
+        }
+
+        body.theme-premium-purple {
+            --primary: #6a0572;
+            --secondary: #8b0a8b;
+            --bg-main: #f5f1fa;
+            --bg-sec: #ffffff;
+            --bg-dark: #e6d4f0;
+            --text-main: #3a1a42;
+            --text-sec: #6d4d7a;
+        }
+
+        body.theme-executive-black {
+            --primary: #1a1a1a;
+            --secondary: #333333;
+            --bg-main: #2a2a2a;
+            --bg-sec: #3a3a3a;
+            --bg-dark: #1f1f1f;
+            --text-main: #e8e8e8;
+            --text-sec: #b0b0b0;
+        }
+
+        body.theme-minimal-gray {
+            --primary: #555555;
+            --secondary: #777777;
+            --bg-main: #f9f9f9;
+            --bg-sec: #ffffff;
+            --bg-dark: #f0f0f0;
+            --text-main: #333333;
+            --text-sec: #666666;
+        }
+
+        body.theme-tech-cyan {
+            --primary: #0891b2;
+            --secondary: #06b6d4;
+            --bg-main: #082f49;
+            --bg-sec: #0f3c48;
+            --bg-dark: #0a1e26;
+            --text-main: #cffafe;
+            --text-sec: #9ecdc8;
+        }
+
+        body.theme-elegant-burgundy {
+            --primary: #8b3a62;
+            --secondary: #a83a5c;
+            --bg-main: #faf6f4;
+            --bg-sec: #fefdfb;
+            --bg-dark: #f3e8e4;
+            --text-main: #4a2a3a;
+            --text-sec: #8b6a7a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-sec) 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-sec);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-controls {
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .selector-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .selector-group label {
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .selector-group select {
+            padding: 8px 12px;
+            border: 2px solid white;
+            border-radius: 4px;
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .selector-group select:hover {
+            background: var(--secondary);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+
+        .meta {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 0.95em;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+            padding: 40px;
+            background: var(--bg-sec);
+            border-radius: 8px;
+            border-left: 6px solid var(--primary);
+        }
+
+        .section h2 {
+            color: var(--primary);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .conecta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 80px;
+        }
+
+        .conecta-section h2 {
+            color: white;
+            border-bottom: 2px solid white;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.05em;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.6);
+        }
+
+        .code-box {
+            background: var(--bg-dark);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #4CAF50;
+            margin: 20px 0;
+        }
+
+        .code-box p {
+            margin: 8px 0;
+            color: var(--text-main);
+        }
+
+        .code-box .label {
+            color: #4CAF50;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        .code-box .code {
+            color: var(--primary);
+            font-size: 1.2em;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+
+        .separator {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 60px 0;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        footer {
+            background: var(--bg-dark);
+            color: var(--text-sec);
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 2px solid var(--primary);
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .header-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .selector-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="theme-executive-black">
+    <div class="container">
+        <div class="header-controls">
+            <div class="selector-group">
+                <label for="language">🌐 Idioma / Language:</label>
+                <select id="language" onchange="cambiarIdioma(this.value)">
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+            <div class="selector-group">
+                <label for="theme">🎨 Tema / Theme:</label>
+                <select id="theme" onchange="cambiarTema(this.value)">
+                    <option value="theme-executive-black" selected>Executive Black (Default)</option>
+                    <option value="theme-dark">Dark (Oscuro)</option>
+                    <option value="theme-light">Light (Claro)</option>
+                    <option value="theme-corporate-blue">Corporate Blue</option>
+                    <option value="theme-modern-green">Modern Green</option>
+                    <option value="theme-premium-purple">Premium Purple</option>
+                    <option value="theme-minimal-gray">Minimal Gray</option>
+                    <option value="theme-tech-cyan">Tech Cyan</option>
+                    <option value="theme-elegant-burgundy">Elegant Burgundy</option>
+                </select>
+            </div>
+        </div>
+
+        <header>
+            <h1 id="titulo">📚 SMC TRADING GUIDE</h1>
+            <p id="subtitulo">Smart Money Concepts - Guía Visual Completa</p>
+        </header>
+
+        <div class="meta">
+            <span id="meta-version">Versión 4.0 (Bilingüe + 4 Temas)</span> • <span id="meta-creator">Creado para Nell</span> • Junio 2026 • Vantage Markets + MT5
+        </div>
+
+        <div class="content">
+            <!-- SECCIÓN CONECTA CONMIGO AL INICIO -->
+            <div class="conecta-section">
+                <h2 id="conecta-titulo">🌟 CONECTA CONMIGO - Aprovecha los Recursos</h2>
+
+                <div style="background: rgba(255,255,255, 0.1); padding: 30px; border-radius: 8px; margin-bottom: 30px;">
+                    <h3 id="telegram-titulo" style="color: white; margin-bottom: 15px; font-size: 1.5em;">📱 VantixSM | Vantix Signal Master 🤖 (24/7)</h3>
+                    <p id="telegram-desc" style="font-size: 1.05em; margin-bottom: 20px;">Bot automático de generación de señales de trading en ORO (XAUUSD) y BTC (BTCUSD) - Disponible 24/7</p>
+                    <a href="https://web.telegram.org/k/#@VantixSM_BOT" target="_blank" class="btn btn-primary" id="btn-telegram">
+                        📲 Únete a VantixSM_BOT en Telegram
+                    </a>
+                </div>
+
+                <div style="background: rgba(255,255,255, 0.1); padding: 30px; border-radius: 8px;">
+                    <h3 id="vantage-titulo" style="color: white; margin-bottom: 15px; font-size: 1.5em;">💹 Vantage Markets | Official Partner - Nell</h3>
+                    <p id="vantage-desc" style="font-size: 1.05em; margin-bottom: 20px;">Abre tu cuenta real y recibe 150% del bono de apertura</p>
+                    
+                    <div class="code-box" style="background: linear-gradient(135deg, #FFD54F 0%, #FFC107 100%); border-left: 4px solid #FF6F00; padding: 30px; margin: 30px 0; border-radius: 8px;">
+                        <p class="label" style="color: #333; font-size: 1.1em; margin-bottom: 12px;" id="code-label">Código de Invitación:</p>
+                        <p class="code" style="color: #E65100; font-size: 2.5em; font-weight: bold; letter-spacing: 2px; text-align: center; font-family: 'Courier New', monospace; margin: 15px 0;">xW6KJUQZ</p>
+                        <p id="code-instruccion" style="font-size: 0.95em; margin-top: 15px; color: #333; text-align: center; font-weight: 500;">⭐ Úsalo al registrarte para obtener el bono 150%</p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+                        <a href="https://vigco.co/la-com-inv/xW6KJUQZ" target="_blank" class="btn btn-secondary" id="btn-web">
+                            🌐 Abrir Cuenta Broker Vantage (Web)
+                        </a>
+                        <a href="https://vigco.co/app-com1-inv/xW6KJUQZ" target="_blank" class="btn btn-secondary" id="btn-app">
+                            📱 Descargar App
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="separator"></div>
+
+            <!-- CONTENIDO PRINCIPAL (Se va a llenar con JavaScript) -->
+            <div id="contenido-principal">
+                <p id="loading-msg">Cargando contenido...</p>
+            </div>
+
+        </div>
+
+        <footer>
+            <p><strong id="footer-titulo">SMC Trading Guide - Versión 4.0</strong></p>
+            <p id="footer-creator">Creado por: Nell (Nelson Martínez Flores)</p>
+            <p id="footer-desc">18 Conceptos | 3 Setups Profesionales | VantixSM Bot Integrado | Bilingüe + 4 Temas</p>
+            <p style="margin-top: 20px; font-size: 0.85em;">
+                <span id="footer-warning">⚠️ DESCARGO: SMC no es santo grial. ESMA reporta 74-89% de cuentas minoristas pierden dinero.</span>
+                <br><span id="footer-contact">Sígueme: @VantixSM_BOT | Código: xW6KJUQZ</span>
+                <br><span id="footer-end">© 2026 - Éxito en tu trading, Nell. 💪</span>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        const textos = {
+            es: {
+                titulo: "📚 SMC TRADING GUIDE",
+                subtitulo: "Smart Money Concepts - Guía Visual Completa",
+                metaVersion: "Versión 4.0 (Bilingüe + 8 Temas Profesionales)",
+                metaCreator: "Creado para Nell",
+                conectaTitulo: "🌟 CONECTA CONMIGO - Aprovecha los Recursos",
+                telegramTitulo: "📱 VantixSM | Vantix Signal Master 🤖 (24/7)",
+                telegramDesc: "Bot de generación automática de señales de trading en ORO (XAUUSD) y BTC (BTCUSD) - Disponible 24/7",
+                btnTelegram: "📲 Únete a VantixSM_BOT en Telegram",
+                vantageTitulo: "💹 Vantage Markets | Official Partner - Nell",
+                vantageDesc: "Abre tu cuenta real y recibe 150% del bono de apertura",
+                codeLabel: "Código de Invitación:",
+                codeInstruccion: "Úsalo al registrarte para obtener el bono 150%",
+                btnWeb: "🌐 Abrir Cuenta Broker Vantage (Web)",
+                btnApp: "📱 Descargar App",
+                footerTitulo: "SMC Trading Guide - Versión 4.0",
+                footerCreator: "Creado por: Nell (Nelson Martínez Flores)",
+                footerDesc: "18 Conceptos | 3 Setups Profesionales | VantixSM Bot Integrado | Bilingüe + 8 Temas Profesionales",
+                footerWarning: "⚠️ DESCARGO: SMC no es santo grial. ESMA reporta 74-89% de cuentas minoristas pierden dinero.",
+                footerContact: "Sígueme: @VantixSM_BOT | Código: xW6KJUQZ",
+                footerEnd: "© 2026 - Éxito en tu trading, Nell. 💪",
+                loadingMsg: "Cargando contenido..."
+            },
+            en: {
+                titulo: "📚 SMC TRADING GUIDE",
+                subtitulo: "Smart Money Concepts - Complete Visual Guide",
+                metaVersion: "Version 4.0 (Bilingual + 8 Professional Themes)",
+                metaCreator: "Created for Nell",
+                conectaTitulo: "🌟 CONNECT WITH ME - Leverage Resources",
+                telegramTitulo: "📱 VantixSM | Vantix Signal Master 🤖 (24/7)",
+                telegramDesc: "Automatic trading signal generation bot for GOLD (XAUUSD) and BTC (BTCUSD) - Available 24/7",
+                btnTelegram: "📲 Join VantixSM_BOT on Telegram",
+                vantageTitulo: "💹 Vantage Markets | Official Partner - Nell",
+                vantageDesc: "Open your live account and receive 150% of the opening bonus",
+                codeLabel: "Invitation Code:",
+                codeInstruccion: "Use it when registering to get the 150% bonus",
+                btnWeb: "🌐 Open Vantage Broker Account (Web)",
+                btnApp: "📱 Download App",
+                footerTitulo: "SMC Trading Guide - Version 4.0",
+                footerCreator: "Created by: Nell (Nelson Martínez Flores)",
+                footerDesc: "18 Concepts | 3 Professional Setups | VantixSM Bot Integrated | Bilingual + 8 Professional Themes",
+                footerWarning: "⚠️ DISCLAIMER: SMC is not a holy grail. ESMA reports 74-89% of retail accounts lose money.",
+                footerContact: "Follow me: @VantixSM_BOT | Code: xW6KJUQZ",
+                footerEnd: "© 2026 - Success in your trading, Nell. 💪",
+                loadingMsg: "Loading content..."
+            }
+        };
+
+        let idiomaActual = 'es';
+
+        function cambiarIdioma(idioma) {
+            idiomaActual = idioma;
+            document.documentElement.lang = idioma;
+            
+            document.getElementById('titulo').textContent = textos[idioma].titulo;
+            document.getElementById('subtitulo').textContent = textos[idioma].subtitulo;
+            document.getElementById('meta-version').textContent = textos[idioma].metaVersion;
+            document.getElementById('meta-creator').textContent = textos[idioma].metaCreator;
+            document.getElementById('conecta-titulo').textContent = textos[idioma].conectaTitulo;
+            document.getElementById('telegram-titulo').textContent = textos[idioma].telegramTitulo;
+            document.getElementById('telegram-desc').textContent = textos[idioma].telegramDesc;
+            document.getElementById('btn-telegram').textContent = textos[idioma].btnTelegram;
+            document.getElementById('vantage-titulo').textContent = textos[idioma].vantageTitulo;
+            document.getElementById('vantage-desc').textContent = textos[idioma].vantageDesc;
+            document.getElementById('code-label').textContent = textos[idioma].codeLabel;
+            document.getElementById('code-instruccion').textContent = textos[idioma].codeInstruccion;
+            document.getElementById('btn-web').textContent = textos[idioma].btnWeb;
+            document.getElementById('btn-app').textContent = textos[idioma].btnApp;
+            document.getElementById('footer-titulo').textContent = textos[idioma].footerTitulo;
+            document.getElementById('footer-creator').textContent = textos[idioma].footerCreator;
+            document.getElementById('footer-desc').textContent = textos[idioma].footerDesc;
+            document.getElementById('footer-warning').textContent = textos[idioma].footerWarning;
+            document.getElementById('footer-contact').textContent = textos[idioma].footerContact;
+            document.getElementById('footer-end').textContent = textos[idioma].footerEnd;
+            
+            localStorage.setItem('idioma', idioma);
+        }
+
+        function cambiarTema(tema) {
+            document.body.className = tema;
+            localStorage.setItem('tema', tema);
+        }
+
+        // Cargar preferencias guardadas
+        window.addEventListener('load', function() {
+            const idiomaGuardado = localStorage.getItem('idioma') || 'es';
+            const temaGuardado = localStorage.getItem('tema') || 'theme-dark';
+            
+            document.getElementById('language').value = idiomaGuardado;
+            document.getElementById('theme').value = temaGuardado;
+            
+            cambiarIdioma(idiomaGuardado);
+            cambiarTema(temaGuardado);
+        });
+    </script>
+</body>
+</html>
